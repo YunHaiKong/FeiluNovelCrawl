@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飞卢小说数据可视化分析系统</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">飞卢小说数据可视化分析系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#dashboard">数据概览</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#books">小说列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analysis">数据分析</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- 数据概览部分 -->
+        <section id="dashboard" class="mb-5">
+            <h2 class="section-title">数据概览</h2>
+            <div class="row mt-4">
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <h5 class="card-title">总小说数</h5>
+                            <p class="card-text" id="total-books">加载中...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <h5 class="card-title">总标签数</h5>
+                            <p class="card-text" id="total-tags">加载中...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <h5 class="card-title">平均评分</h5>
+                            <p class="card-text" id="avg-rating">加载中...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card stat-card">
+                        <div class="card-body">
+                            <h5 class="card-title">最高点击量</h5>
+                            <p class="card-text" id="max-clicks">加载中...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 小说列表部分 -->
+        <section id="books" class="mb-5">
+            <h2 class="section-title">小说列表</h2>
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover" id="books-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>书名</th>
+                                    <th>作者</th>
+                                    <th>月点击量</th>
+                                    <th>字数</th>
+                                    <th>鲜花数</th>
+                                    <th>评分</th>
+                                    <th>打赏</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="8" class="text-center">加载中...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <nav>
+                        <ul class="pagination justify-content-center" id="books-pagination">
+                            <!-- 分页控件将通过JavaScript动态生成 -->
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- 数据分析部分 -->
+        <section id="analysis" class="mb-5">
+            <h2 class="section-title">数据分析</h2>
+            
+            <div class="row mt-4">
+                <!-- 标签分布图 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">标签分布</div>
+                        <div class="card-body">
+                            <div id="tag-distribution-chart" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 评分分布图 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">评分分布</div>
+                        <div class="card-body">
+                            <div id="rating-distribution-chart" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 热门作者图 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">热门作者 (Top 10)</div>
+                        <div class="card-body">
+                            <div id="top-authors-chart" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 点击量与评分关系图 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-header">点击量与评分关系</div>
+                        <div class="card-body">
+                            <div id="clicks-rating-chart" style="height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center">
+            <p>飞卢小说数据可视化分析系统 &copy; 2023</p>
+        </div>
+    </footer>
+
+    <!-- 引入JavaScript库 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
