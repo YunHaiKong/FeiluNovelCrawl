@@ -99,10 +99,15 @@ http://localhost:5000
 ```
 
 使用界面：
+<img width="2796" height="1525" alt="image" src="https://github.com/user-attachments/assets/a1574f7f-7930-452f-9e67-eec04e5b1288" />
+
 - 顶部导航栏可以快速跳转到不同的功能区域
 - 在"数据概览"部分查看关键统计数据
 - 在"小说列表"部分浏览所有小说信息
 - 在"数据分析"部分查看各种可视化图表
+
+<img width="3566" height="1766" alt="image" src="https://github.com/user-attachments/assets/60f0d8d6-6df6-44c4-b57b-93daa4b452ae" />
+
 
 ## 系统架构
 
@@ -212,5 +217,6 @@ http://localhost:5000
 - 数据库操作使用事务处理，如果某条记录保存失败，会自动回滚，不影响其他记录
 
 ## 许可证
+
 
 本项目采用MIT许可证。详情请参阅LICENSE文件。
