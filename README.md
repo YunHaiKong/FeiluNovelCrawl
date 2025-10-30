@@ -107,6 +107,7 @@ http://localhost:5000
 - 在"数据分析"部分查看各种可视化图表
 
 <img width="3566" height="1766" alt="image" src="https://github.com/user-attachments/assets/60f0d8d6-6df6-44c4-b57b-93daa4b452ae" />
+<img width="2861" height="1761" alt="image" src="https://github.com/user-attachments/assets/c00dd295-fe1e-4134-967b-ffed73a8805b" />
 
 
 ## 系统架构
@@ -220,3 +221,4 @@ http://localhost:5000
 
 
 本项目采用MIT许可证。详情请参阅LICENSE文件。
+
